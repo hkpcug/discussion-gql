@@ -1,2 +1,3 @@
-# newsgroup-gql
-Newsgroup GraphQL API server
+# discussion-gql
+
+Discussion GraphQL API server

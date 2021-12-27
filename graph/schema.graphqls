@@ -1,0 +1,55 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+scalar DateTime
+
+type Post {
+  id: ID!
+  channel: Channel!
+  user: User!
+  subject: String!
+  body: String!
+  metadata: MetaData
+}
+
+type User {
+  id: ID!
+  name: String!
+}
+
+type Origin {
+  id: String!
+  url: String
+}
+
+type Channel {
+  id: String!
+  url: String
+  origin: Origin!
+}
+
+type MetaData {
+  time: DateTime!
+  tags: [String]
+  headers: [Header]
+}
+
+type Header {
+  name: String!
+  value: String!
+}
+
+type Query {
+  posts: [Post!]!
+}
+
+input NewPost {
+  subject: String!
+  body: String!
+  userId: String!
+}
+
+type Mutation {
+  createPost(input: NewPost!): Post!
+}
